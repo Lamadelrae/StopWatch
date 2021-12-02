@@ -1,0 +1,35 @@
+﻿<Window x:Class="StopWatch.UI.Views.StopWatchUI"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StopWatch.UI.Views"
+        mc:Ignorable="d"
+        Title="StopWatchUI" Height="450" Width="800">
+    <Grid>
+        <DataGrid x:Name="StopWatchGrid" Margin="10,129,10,0" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="Id"  Visibility="Hidden" Binding="{Binding Id}"/>
+                <DataGridTextColumn IsReadOnly="True" x:Name="Start" Header="Start" Binding="{Binding Start}"/>
+                <DataGridTextColumn IsReadOnly="True" x:Name="Stop" Header="Stop" Binding="{Binding Stop}"/>
+                <DataGridTextColumn IsReadOnly="True" x:Name="TotalTime" Header="TotalTime" Binding="{Binding TotalTime}"/>
+                <DataGridTextColumn IsReadOnly="True" x:Name="CountNow" Header="CountNow" Binding="{Binding CountNow}"/>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Click="StopStopWatch">Stop</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Click="DeleteStopWatch">Delete</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="StartNewWatchButton" Content="Start New" HorizontalAlignment="Left" Margin="666,104,0,0" VerticalAlignment="Top" Width="124" Click="StartNewWatchButtonClick"/>
+    </Grid>
+</Window>
